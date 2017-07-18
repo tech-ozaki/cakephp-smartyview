@@ -68,7 +68,7 @@ class SmartyView extends View
                 $this->Smarty->setPluginsDir(array(APP . 'View' . DS.'smarty_plugins'.DS));
                 break;
         }
-
+		$this->Smarty->setTemplateDir(array(APP . 'View'));
 	}
 
 /**
