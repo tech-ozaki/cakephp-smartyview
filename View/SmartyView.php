@@ -17,7 +17,7 @@
 /**
  * Include Smarty.
  */
-App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.class.php'));
+App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'smarty'.DS.'libs'.DS. 'Smarty.class.php'));
 
 /**
  * CakePHP Smarty view class
@@ -44,6 +44,9 @@ class SmartyView extends View
      */
 	function __construct (&$controller)
 	{
+        // Loading base class of Smarty Helpers
+        App::uses('SmartyBaseHelper', $this->pluginName.'.'.'View/Helper');
+
 		parent::__construct($controller);
 
 		$this->Smarty = new Smarty();
@@ -65,9 +68,7 @@ class SmartyView extends View
                 $this->Smarty->setPluginsDir(array(APP . 'View' . DS.'smarty_plugins'.DS));
                 break;
         }
-
-        // Loading base class of Smarty Helpers
-        App::uses('SmartyBaseHelper', $this->pluginName.'.'.'View/Helper');
+		$this->Smarty->setTemplateDir(array(APP . 'View'));
 	}
 
 /**
