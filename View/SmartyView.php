@@ -53,6 +53,10 @@ class SmartyView extends View
 		$this->_smartyVersion();
 
 		$this->ext= '.tpl';
+
+		$this->Smarty->left_delimiter = '{{';
+		$this->Smarty->right_delimiter = '}}';
+
 		$this->Smarty->compile_dir = TMP.'smarty'.DS.'compile'.DS;
 		$this->Smarty->cache_dir = TMP.'smarty'.DS.'cache'.DS;
 		$this->Smarty->error_reporting = 'E_ALL & ~E_NOTICE';
